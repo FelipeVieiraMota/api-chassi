@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class SchedulerResponse {
+public class SchedulerData {
 
     @JsonProperty("id_scheduler")
     private Long idScheduler;
@@ -28,13 +28,23 @@ public class SchedulerResponse {
     @JsonProperty("description")
     private String description;
 
-    public static SchedulerResponse parseResponse(Scheduler scheduler){
-        return new SchedulerResponse(
+    public static SchedulerData parseSchedulerData(Scheduler scheduler){
+        return new SchedulerData(
                 scheduler.getIdScheduler(),
                 scheduler.getName(),
                 scheduler.getNumber(),
                 scheduler.getDescription(),
                 scheduler.getEmail()
+        );
+    }
+
+    public static Scheduler parseScheduler(SchedulerData schedulerData){
+        return new Scheduler(
+                null,
+                schedulerData.getName(),
+                schedulerData.getNumber(),
+                schedulerData.getDescription(),
+                schedulerData.getEmail()
         );
     }
 }

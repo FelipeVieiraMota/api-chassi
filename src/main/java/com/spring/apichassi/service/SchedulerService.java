@@ -2,7 +2,7 @@ package com.spring.apichassi.service;
 
 import com.spring.apichassi.domain.vo.Scheduler;
 import com.spring.apichassi.dto.EnveloptedData;
-import com.spring.apichassi.dto.SchedulerResponse;
+import com.spring.apichassi.dto.SchedulerData;
 import com.spring.apichassi.repository.SchedulerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +20,13 @@ public class SchedulerService {
         this.schedulerRepository = schedulerRepository;
     }
 
-    public SchedulerResponse getSchedulerById(Long id){
+    public SchedulerData getSchedulerById(Long id){
         Optional<Scheduler> data =  this.schedulerRepository.findById(id);
-        return SchedulerResponse.parseResponse(data.get());
+        return SchedulerData.parseSchedulerData(data.get());
+    }
+
+    public Scheduler createScheduler(SchedulerData schedulerData){
+        Scheduler data = SchedulerData.parseScheduler(schedulerData);
+        return this.schedulerRepository.save(data);
     }
 }
