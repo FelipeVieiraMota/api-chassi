@@ -1,4 +1,4 @@
-package com.spring.apichassi.domain.vo;
+package com.spring.apichassi.domain.vo.student;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

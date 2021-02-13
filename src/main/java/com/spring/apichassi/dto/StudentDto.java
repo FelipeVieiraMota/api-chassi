@@ -1,13 +1,11 @@
 package com.spring.apichassi.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.spring.apichassi.domain.vo.StudentEntity;
+import com.spring.apichassi.domain.vo.student.StudentEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.persistence.Column;
 
 @Getter @Setter
 @AllArgsConstructor

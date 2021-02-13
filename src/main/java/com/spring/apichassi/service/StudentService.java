@@ -1,6 +1,6 @@
 package com.spring.apichassi.service;
 
-import com.spring.apichassi.domain.vo.StudentEntity;
+import com.spring.apichassi.domain.vo.student.StudentEntity;
 import com.spring.apichassi.dto.StudentDto;
 import com.spring.apichassi.repository.StudentRepository;
 import javassist.NotFoundException;
@@ -23,7 +23,7 @@ public class StudentService {
 
     public StudentDto getStudentByTokenStudent(String tokenStudent) throws NotFoundException {
         Optional<StudentEntity> data =  this.studentRepository.getStudentByTokenStudent(tokenStudent);
-        data.orElseThrow(() -> new NotFoundException("There are not user with token_student = "+ tokenStudent));
+        data.orElseThrow(() -> new NotFoundException("There are not user with token = "+ tokenStudent));
         return StudentDto.parseToStudentDto(data.get());
     }
 

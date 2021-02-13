@@ -1,14 +1,12 @@
-package com.spring.apichassi.domain.vo;
+package com.spring.apichassi.domain.vo.student;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.UUID;
 
 @NoArgsConstructor
 @AllArgsConstructor
