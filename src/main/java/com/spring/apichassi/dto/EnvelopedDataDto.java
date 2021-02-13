@@ -9,7 +9,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter @Setter
-public class EnvelopedData<T>{
+public class EnvelopedDataDto<T>{
     @JsonProperty("data")
     T data;
 }

@@ -30,8 +30,11 @@ public class StudentEntity implements Serializable{
     @Column(name = "token_student", updatable = false, nullable = false)
     String tokenStudent;
 
-    @Column(name = "name_student", nullable = false)
-    String nameStudent;
+    @Column(name = "first_name_student", nullable = false)
+    String firstNameStudent;
+
+    @Column(name = "last_name_student", nullable = false)
+    String lastNameStudent;
 
     @Column(name = "cpf_student", nullable = false)
     String cpfStudent;

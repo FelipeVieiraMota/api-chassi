@@ -1,14 +1,15 @@
 package com.spring.apichassi.service;
 
 import com.spring.apichassi.domain.vo.StudentEntity;
-import com.spring.apichassi.domain.vo.StudentEntityPrimaryKeys;
+import com.spring.apichassi.dto.StudentDto;
 import com.spring.apichassi.repository.StudentRepository;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class StudentService {
@@ -20,10 +21,26 @@ public class StudentService {
         this.studentRepository = studentRepository;
     }
 
-    public StudentEntity getStudentByIdToken(Long idStudent, String tokenStudent) throws NotFoundException {
-        StudentEntityPrimaryKeys keys = new StudentEntityPrimaryKeys(idStudent, tokenStudent);
-        Optional<StudentEntity> data =  this.studentRepository.findById(keys);
-        return data.orElseThrow(() -> new NotFoundException("There are not user with token_student = "+ tokenStudent));
+    public StudentDto getStudentByTokenStudent(String tokenStudent) throws NotFoundException {
+        Optional<StudentEntity> data =  this.studentRepository.getStudentByTokenStudent(tokenStudent);
+        data.orElseThrow(() -> new NotFoundException("There are not user with token_student = "+ tokenStudent));
+        return StudentDto.parseToStudentDto(data.get());
+    }
+
+    public StudentDto getStudentByIdStudent(Long idStudent) throws NotFoundException {
+        Optional<StudentEntity> data =  this.studentRepository.getStudentByIdStudent(idStudent);
+        data.orElseThrow(() -> new NotFoundException("There are not user with id = "+ idStudent));
+        return StudentDto.parseToStudentDto(data.get());
+    }
+
+    public List<StudentDto> getAllStudents()  {
+        List<StudentEntity> data =  this.studentRepository.findAll();
+        List<StudentDto> listDto = new ArrayList<>();
+        data.forEach( student -> {
+            StudentDto dto = StudentDto.parseToStudentDto(student);
+            listDto.add(dto);
+        });
+        return listDto;
     }
 
 }
