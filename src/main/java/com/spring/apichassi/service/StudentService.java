@@ -1,7 +1,7 @@
 package com.spring.apichassi.service;
 
 import com.spring.apichassi.domain.vo.student.StudentEntity;
-import com.spring.apichassi.dto.StudentDto;
+import com.spring.apichassi.dto.student.StudentDto;
 import com.spring.apichassi.repository.StudentRepository;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,4 +43,8 @@ public class StudentService {
         return listDto;
     }
 
+    public StudentDto saveStudent(StudentDto student){
+        StudentEntity entity = this.studentRepository.save(StudentDto.parseToStudentEntity(student));
+        return StudentDto.parseToStudentDto(entity);
+    }
 }

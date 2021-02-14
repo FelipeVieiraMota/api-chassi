@@ -7,14 +7,13 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-
 @Entity(name="tb_student")
-@IdClass(StudentEntityPrimaryKeys.class)
 public class StudentEntity implements Serializable{
 
     private static final long serialVersionUID = 1L;
@@ -22,24 +21,27 @@ public class StudentEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_student", nullable = false)
-    Long idStudent;
+    private Long idStudent;
 
-    @Id
-    @Column(name = "token_student", updatable = false, nullable = false)
-    String tokenStudent;
+    @Column(name = "token", updatable = false, nullable = false)
+    private String token;
 
-    @Column(name = "first_name_student", nullable = false)
-    String firstNameStudent;
+    @Column(name = "first_name", nullable = false)
+    private String firstName;
 
-    @Column(name = "last_name_student", nullable = false)
-    String lastNameStudent;
+    @Column(name = "last_name", nullable = false)
+    private String lastName;
 
-    @Column(name = "cpf_student", nullable = false)
-    String cpfStudent;
+    @Column(name = "cpf", nullable = false)
+    private String cpf;
 
-    @Column(name = "rg_student", nullable = false)
-    String rgStudent;
+    @Column(name = "rg", nullable = false)
+    private String rg;
 
-    @Column(name = "age_student", nullable = false)
-    int ageStudent;
+    @Column(name = "age", nullable = false)
+    int age;
+
+    @Column(name = "creation_date", nullable = false, updatable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date creationDate;
 }

@@ -1,16 +1,15 @@
 package com.spring.apichassi.controller;
 
 import com.spring.apichassi.dto.EnvelopedDataDto;
-import com.spring.apichassi.dto.StudentDto;
+import com.spring.apichassi.dto.student.StudentDto;
 import com.spring.apichassi.service.StudentService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
@@ -44,5 +43,10 @@ public class StudentController {
     @GetMapping()
     public ResponseEntity<EnvelopedDataDto<List<StudentDto>>> getAllStudents() {
         return ResponseEntity.ok(new EnvelopedDataDto<>(this.studentService.getAllStudents()));
+    }
+
+    @PostMapping()
+    public ResponseEntity<EnvelopedDataDto<StudentDto>> saveStudent(EnvelopedDataDto<StudentDto> student) throws URISyntaxException {
+        return ResponseEntity.created(new URI("")).body(new EnvelopedDataDto<>(this.studentService.saveStudent(student.getData())));
     }
 }

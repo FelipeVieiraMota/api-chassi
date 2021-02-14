@@ -1,7 +1,11 @@
+/home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/dto/EnvelopedDataDto.java
 /home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/ApichassiApplication.java
+/home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/domain/vo/student/address/StudentAddressEntity.java
+/home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/domain/vo/student/StudentEntityPrimaryKeys.java
 /home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/service/StudentService.java
-/home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/domain/vo/StudentEntityPrimaryKeys.java
+/home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/domain/vo/student/StudentEntity.java
+/home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/domain/vo/student/address/StudentAddressEntityPrimaryKeys.java
 /home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/controller/StudentController.java
-/home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/domain/vo/StudentEntity.java
-/home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/dto/EnvelopedData.java
+/home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/dto/student/StudentDto.java
+/home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/dto/student/address/StudentAddressDto.java
 /home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/repository/StudentRepository.java

@@ -1,7 +1,11 @@
+com/spring/apichassi/domain/vo/student/address/StudentAddressEntityPrimaryKeys.class
+com/spring/apichassi/dto/student/StudentDto.class
 com/spring/apichassi/ApichassiApplication.class
+com/spring/apichassi/dto/student/address/StudentAddressDto.class
+com/spring/apichassi/dto/EnvelopedDataDto.class
 com/spring/apichassi/service/StudentService.class
 com/spring/apichassi/repository/StudentRepository.class
-com/spring/apichassi/dto/EnvelopedData.class
-com/spring/apichassi/domain/vo/StudentEntityPrimaryKeys.class
 com/spring/apichassi/controller/StudentController.class
-com/spring/apichassi/domain/vo/StudentEntity.class
+com/spring/apichassi/domain/vo/student/StudentEntityPrimaryKeys.class
+com/spring/apichassi/domain/vo/student/address/StudentAddressEntity.class
+com/spring/apichassi/domain/vo/student/StudentEntity.class

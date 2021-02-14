@@ -1,7 +1,6 @@
 package com.spring.apichassi.domain.vo.student.address;
 
 import com.spring.apichassi.domain.vo.student.StudentEntity;
-import com.spring.apichassi.domain.vo.student.StudentEntityPrimaryKeys;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,33 +14,37 @@ import java.io.Serializable;
 @Getter
 @Setter
 @Entity(name="tb_student_address")
-@IdClass(StudentAddressEntityPrimaryKeys.class)
 public class StudentAddressEntity implements Serializable{
-
-    @ManyToOne
-    @JoinColumn(name = "id_student", nullable = false)
-    @JoinColumn(name = "token_student", nullable = false)
-    private StudentEntity studentEntity;
 
     @Id
     @Column(name = "id_address", nullable = false)
     private Long idAddress;
 
-    @Column(name = "type", nullable = false)
+    @Column(name = "type")
     private String type;
 
-    @Column(name = "street", nullable = false)
+    @Column(name = "street")
     private String street;
 
-    @Column(name = "neighborhood", nullable = false)
+    @Column(name = "number")
+    private Long number;
+
+    @Column(name = "neighborhood")
     private String neighborhood;
 
-    @Column(name = "city", nullable = false)
+    @Column(name = "city")
     private String city;
 
-    @Column(name = "state", nullable = false)
+    @Column(name = "state")
     private String state;
 
-    @Column(name = "cep_code", nullable = false)
+    @Column(name = "country")
+    private String country;
+
+    @Column(name = "cep_code")
     private String cepCode;
+
+    @ManyToOne
+    @JoinColumn(name = "id_student", nullable = false)
+    private StudentEntity student;
 }
