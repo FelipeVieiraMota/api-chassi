@@ -17,6 +17,7 @@ import java.io.Serializable;
 public class StudentAddressEntity implements Serializable{
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_address", nullable = false)
     private Long idAddress;
 

@@ -1,5 +1,6 @@
 package com.spring.apichassi.dto.student.address;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.spring.apichassi.domain.vo.student.StudentEntity;
 import com.spring.apichassi.domain.vo.student.address.StudentAddressEntity;
@@ -41,6 +42,7 @@ public class StudentAddressDto {
     @JsonProperty(value = "cep_code")
     private String cepCode;
 
+    @Getter(onMethod = @__({@JsonIgnore}))
     @JsonProperty(value = "student")
     private StudentEntity student;
 
