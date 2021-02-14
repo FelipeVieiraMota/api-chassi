@@ -44,7 +44,7 @@ public class StudentAddressEntity implements Serializable{
     @Column(name = "cep_code")
     private String cepCode;
 
-    //@ManyToOne
-    //@JoinColumn(name = "id_student", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "id_student", nullable = false)
     private StudentEntity student;
 }

@@ -1,4 +1,4 @@
-package com.spring.apichassi.repository;
+package com.spring.apichassi.repository.student;
 
 import com.spring.apichassi.domain.vo.student.StudentEntity;
 import com.spring.apichassi.domain.vo.student.StudentEntityPrimaryKeys;

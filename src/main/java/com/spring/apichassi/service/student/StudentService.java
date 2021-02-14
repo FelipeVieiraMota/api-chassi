@@ -1,8 +1,11 @@
-package com.spring.apichassi.service;
+package com.spring.apichassi.service.student;
 
 import com.spring.apichassi.domain.vo.student.StudentEntity;
+import com.spring.apichassi.domain.vo.student.address.StudentAddressEntity;
 import com.spring.apichassi.dto.student.StudentDto;
-import com.spring.apichassi.repository.StudentRepository;
+import com.spring.apichassi.dto.student.address.StudentAddressDto;
+import com.spring.apichassi.repository.student.StudentRepository;
+import com.spring.apichassi.repository.student.address.StudentAddressRepository;
 import com.spring.apichassi.util.Util;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +19,12 @@ import java.util.Optional;
 public class StudentService {
 
     private StudentRepository studentRepository;
+    private StudentAddressRepository studentAddressRepository;
 
     @Autowired
-    public StudentService(StudentRepository studentRepository){
+    public StudentService(StudentRepository studentRepository, StudentAddressRepository studentAddressRepository){
         this.studentRepository = studentRepository;
+        this.studentAddressRepository = studentAddressRepository;
     }
 
     public StudentDto getStudentByTokenStudent(String tokenStudent) throws NotFoundException {
@@ -49,5 +54,12 @@ public class StudentService {
         student.setCreationDate(Util.getCurrentDateTime());
         StudentEntity entity = this.studentRepository.save(StudentDto.parseToStudentEntity(student));
         return StudentDto.parseToStudentDto(entity);
+    }
+
+    public StudentAddressDto saveAddress(Long idStudent, StudentAddressDto address){
+        StudentAddressDto parsedAddress = StudentAddressDto.setIdStudent(idStudent, address);
+        StudentAddressEntity entity = StudentAddressDto.parseToStudentAddressEntity(parsedAddress);
+        StudentAddressDto saved = StudentAddressDto.parseToStudentAddressDto(this.studentAddressRepository.save(entity));
+        return saved;
     }
 }
