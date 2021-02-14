@@ -46,7 +46,8 @@ public class StudentController {
     }
 
     @PostMapping()
-    public ResponseEntity<EnvelopedDataDto<StudentDto>> saveStudent(EnvelopedDataDto<StudentDto> student) throws URISyntaxException {
-        return ResponseEntity.created(new URI("")).body(new EnvelopedDataDto<>(this.studentService.saveStudent(student.getData())));
+    public ResponseEntity<EnvelopedDataDto<StudentDto>> saveStudent(@RequestBody EnvelopedDataDto<StudentDto> student) throws URISyntaxException {
+        StudentDto dto = this.studentService.saveStudent(student.getData());
+        return ResponseEntity.created(new URI("/v1/backoffice/students")).body(new EnvelopedDataDto<>(dto));
     }
 }

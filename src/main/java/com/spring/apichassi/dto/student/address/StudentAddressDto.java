@@ -36,12 +36,12 @@ public class StudentAddressDto {
     public static StudentAddressDto parseToStudentDto (StudentEntity studentEntity){
         return new StudentAddressDto(
                 studentEntity.getIdStudent(),
-                studentEntity.getTokenStudent(),
-                studentEntity.getFirstNameStudent(),
-                studentEntity.getLastNameStudent(),
-                studentEntity.getCpfStudent(),
-                studentEntity.getRgStudent(),
-                studentEntity.getAgeStudent()
+                studentEntity.getToken(),
+                studentEntity.getFirstName(),
+                studentEntity.getLastName(),
+                studentEntity.getCpf(),
+                studentEntity.getRg(),
+                studentEntity.getAge()
         );
     }
 }

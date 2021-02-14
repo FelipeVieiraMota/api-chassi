@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface StudentRepository extends JpaRepository<StudentEntity, StudentEntityPrimaryKeys> {
+public interface StudentRepository extends JpaRepository<StudentEntity, Long> {
 
 
-    Optional<StudentEntity> getStudentByTokenStudent(String tokenStudent);
+    Optional<StudentEntity> getStudentByToken(String tokenStudent);
 
     Optional<StudentEntity> getStudentByIdStudent(Long idStudent);
 

@@ -9,3 +9,4 @@
 /home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/dto/student/StudentDto.java
 /home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/dto/student/address/StudentAddressDto.java
 /home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/repository/StudentRepository.java
+/home/felipe/workspace/Java/Cloud/api-chassi/src/main/java/com/spring/apichassi/util/Util.java

@@ -16,5 +16,5 @@ public class StudentEntityPrimaryKeys implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Long idStudent;
-    private String tokenStudent;
+    private String token;
 }
