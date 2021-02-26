@@ -43,6 +43,8 @@ public class StudentService {
         List<StudentEntity> data =  this.studentRepository.findAll();
         List<StudentDto> listDto = new ArrayList<>();
         data.forEach( student -> {
+            StudentAddressEntity address = getAddressByIdStudent(student.getIdStudent());
+            student.setAddress(address);
             StudentDto dto = StudentDto.parseToStudentDto(student);
             listDto.add(dto);
         });
@@ -61,5 +63,12 @@ public class StudentService {
         StudentAddressEntity entity = StudentAddressDto.parseToStudentAddressEntity(parsedAddress);
         StudentAddressDto saved = StudentAddressDto.parseToStudentAddressDto(this.studentAddressRepository.save(entity));
         return saved;
+    }
+
+    public StudentAddressEntity getAddressByIdStudent(Long idStudent){
+        StudentEntity entity = new StudentEntity();
+        entity.setIdStudent(idStudent);
+        Optional<StudentAddressEntity> opt = this.studentAddressRepository.getAddressByStudent(entity);
+        return opt.get();
     }
 }

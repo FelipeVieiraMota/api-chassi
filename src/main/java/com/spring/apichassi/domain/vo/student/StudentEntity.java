@@ -1,5 +1,7 @@
 package com.spring.apichassi.domain.vo.student;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.spring.apichassi.domain.vo.student.address.StudentAddressEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -45,4 +47,7 @@ public class StudentEntity implements Serializable{
     @Column(name = "creation_date", nullable = false, updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date creationDate;
+
+    private StudentAddressEntity address;
+
 }
