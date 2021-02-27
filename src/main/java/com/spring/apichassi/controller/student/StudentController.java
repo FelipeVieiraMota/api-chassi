@@ -2,7 +2,7 @@ package com.spring.apichassi.controller.student;
 
 import com.spring.apichassi.dto.EnvelopedDataDto;
 import com.spring.apichassi.dto.student.StudentDto;
-import com.spring.apichassi.dto.student.address.StudentAddressDto;
+
 import com.spring.apichassi.service.student.StudentService;
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,15 +51,5 @@ public class StudentController {
             throws URISyntaxException {
         StudentDto dto = this.studentService.saveStudent(student.getData());
         return ResponseEntity.created(new URI("/v1/backoffice/students")).body(new EnvelopedDataDto<>(dto));
-    }
-
-    @PostMapping("/{id_student}/address")
-    public ResponseEntity<EnvelopedDataDto<StudentAddressDto>> saveStudentAddress(
-            @PathVariable(name="id_student") Long idStudent,
-            @RequestBody EnvelopedDataDto<StudentAddressDto> address
-    )
-            throws URISyntaxException {
-        StudentAddressDto dto = this.studentService.saveAddress(idStudent, address.getData());
-        return ResponseEntity.created(new URI("")).body(new EnvelopedDataDto<>(dto));
     }
 }

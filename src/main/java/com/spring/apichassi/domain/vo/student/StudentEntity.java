@@ -1,7 +1,5 @@
 package com.spring.apichassi.domain.vo.student;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.spring.apichassi.domain.vo.student.address.StudentAddressEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,8 +7,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -45,9 +41,6 @@ public class StudentEntity implements Serializable{
     int age;
 
     @Column(name = "creation_date", nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date creationDate;
-
-    private StudentAddressEntity address;
+    private String creationDate;
 
 }

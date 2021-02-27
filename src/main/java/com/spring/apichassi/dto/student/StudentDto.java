@@ -4,14 +4,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.spring.apichassi.domain.vo.student.StudentEntity;
-import com.spring.apichassi.dto.student.address.StudentAddressDto;
-import com.spring.apichassi.util.Util;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.Date;
 
 @Getter @Setter
 @AllArgsConstructor
@@ -41,14 +37,10 @@ public class StudentDto {
     int age;
 
     @Getter(onMethod = @__({@JsonIgnore}))
-    private Date creationDate;
+    private String creationDate;
 
     @JsonProperty(value = "date_creation")
     private String creationDateFormatted;
-
-    @JsonProperty(value = "address")
-    //@Setter(onMethod = @__({@JsonIgnore}))
-    private StudentAddressDto address;
 
 
     public static StudentEntity parseToStudentEntity (StudentDto dto){
@@ -60,8 +52,7 @@ public class StudentDto {
                 dto.getCpf(),
                 dto.getRg(),
                 dto.getAge(),
-                dto.getCreationDate(),
-                StudentAddressDto.parseToStudentAddressEntity(dto.getAddress())
+                dto.getCreationDate()
         );
     }
 
@@ -75,8 +66,7 @@ public class StudentDto {
                 studentEntity.getRg(),
                 studentEntity.getAge(),
                 studentEntity.getCreationDate(),
-                Util.formatDate(studentEntity.getCreationDate()),
-                StudentAddressDto.parseToStudentAddressDto(studentEntity.getAddress())
+                studentEntity.getCreationDate()
         );
     }
 }

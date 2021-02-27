@@ -14,6 +14,16 @@ public class Util {
         return formatter.format(date.getTime());
     }
 
+    public static String getCurrentDateTimeStringWithParameter(String date){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        return formatter.format(date);
+    }
+
+    public static String getCurrentDateTimeString(){
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        return formatter.format(new Date().getTime());
+    }
+
     public static Date getCurrentDateTime(){
         Calendar date = Calendar.getInstance();
         return date.getTime();
